@@ -1,0 +1,103 @@
+.fullnav {
+  background-color: rgb(21, 34, 49);
+  width: 100vw;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding-top: 42px; /* Replace margin-top from .navbar-container */
+}
+
+.navbar-container {
+  background-color: #4b4848;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  width: 77%;
+  margin: auto;
+  /* Remove margin-top here */
+  padding: 12px 0;
+}
+
+/* Center content inside the navbar */
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo section (left side) */
+.logo img {
+  height: 40px;
+}
+
+/* Right side of navbar containing links and profile */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Nav links aligned to left inside nav-bar */
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navlinks a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navlinks a:hover {
+  color: #dddddd; /* subtle hover effect */
+}
+
+/* Profile icon aligned to right inside nav-bar */
+.profile-svg {
+  height: 40px;
+  width: 40px;
+  fill: #181717;
+  cursor: pointer;
+}
+
+.search-bar {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.nav-button {
+  background-color: white;
+  color: #973939;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #f5f5f5;
+}
+.navlinks a:last-child,
+.navlinks a:nth-last-child(2) {
+  background-color: white;
+  color: #973939;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.navlinks a:last-child:hover,
+.navlinks a:nth-last-child(2):hover {
+  background-color: #f5f5f5;
+}
+.logo img {
+  height: 90px;
+  object-fit: contain;
+}
