@@ -1,0 +1,60 @@
+.hero {
+  background-color: #0b0c15; /* same dark as navbar */
+  color: white;
+  padding: 40px 60px;
+  font-family: sans-serif;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+.hero-top img {
+  object-fit: cover;
+}
+.hero-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 76px;
+  background: white;
+  padding: 15px;
+}
+
+.hero-content h1 {
+  font-size: 22px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.hero-content p {
+  max-width: 600px;
+  color: #c7c7c7;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #444;
+  margin: 30px 0;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 12px;
+}
+
+.hero-stats div {
+  flex: 1;
+}
+
+.hero-stats strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}

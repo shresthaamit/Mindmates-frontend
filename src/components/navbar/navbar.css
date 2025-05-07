@@ -1,5 +1,5 @@
 .fullnav {
-  background-color: rgb(21, 34, 49);
+  background-color: #0b0c15;
   width: 100vw;
   position: relative;
   top: 0;
@@ -8,12 +8,12 @@
 }
 
 .navbar-container {
-  background-color: #4b4848;
+  /* background-color: #4b4848; */
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
   width: 77%;
   margin: auto;
   /* Remove margin-top here */
-  padding: 12px 0;
+  /* padding: 7px 0; */
 }
 
 /* Center content inside the navbar */
