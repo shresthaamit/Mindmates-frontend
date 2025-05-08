@@ -4,7 +4,8 @@
   position: relative;
   top: 0;
   left: 0;
-  padding-top: 42px; /* Replace margin-top from .navbar-container */
+  padding-top: 42px;
+  /* padding-bottom: 2px; */
 }
 
 .navbar-container {
@@ -52,17 +53,31 @@
   font-weight: 500;
   font-size: 16px;
   transition: color 0.3s ease;
+  font-weight: bold;
+  font-family: poppins;
 }
 
 .navlinks a:hover {
   color: #dddddd; /* subtle hover effect */
 }
-
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #cf060610; /* subtle visible background */
+  border-radius: 50%;
+  padding: 5px;
+}
+.profile:hover {
+  background-color: #d0010120;
+}
 /* Profile icon aligned to right inside nav-bar */
 .profile-svg {
   height: 40px;
   width: 40px;
-  fill: #181717;
+  fill: #f8f6f6;
   cursor: pointer;
 }
 
@@ -100,4 +115,15 @@
 .logo img {
   height: 90px;
   object-fit: contain;
+}
+@media (max-width: 768px) {
+  .navbar-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

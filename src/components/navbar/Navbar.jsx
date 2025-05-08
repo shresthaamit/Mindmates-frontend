@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import mylogo from "../../assets/images/mylogo.png";
-
+import "../Buttons/buttons.css";
 function Navbar() {
   return (
     <div className="navbar-inner">
@@ -17,20 +17,18 @@ function Navbar() {
           <Link to="/login" className="nav-button">
             Login
           </Link>
-          <Link to="/signup" className="nav-button">
-            Signup
+          <Link to="/signup" className="write-btn">
+            {/* <button className="">→ Write a Post</button> */}→ Signup
           </Link>
         </div>
         <div className="profile">
           <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 122.9 122.9"
             className="profile-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
           >
-            <g>
-              <path d="M61.4,0c17,0,32.3,6.9,43.4..." />
-            </g>
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
           </svg>
         </div>
       </div>
