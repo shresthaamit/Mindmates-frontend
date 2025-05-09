@@ -1,5 +1,11 @@
+import PostCard from "../components/PostCards/postcardquestion";
+
 function Home() {
-  return <h1>Welcome to Home Page</h1>;
+  return (
+    <>
+      <PostCard />
+    </>
+  );
 }
 
 export default Home;

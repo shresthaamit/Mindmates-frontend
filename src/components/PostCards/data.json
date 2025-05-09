@@ -1,0 +1,45 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "author": "Shreatha ",
+        "date": "Aug 6, 2023",
+        "category": "React, Next",
+        "question": "In your opinion, what's the most iconic about React  2023 calendar, and why?",
+        "image":"https://images.unsplash.com/photo-1729552951665-ab1f0ce61c9e?q=80&w=1990&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "tags": ["Programming", "development", "Coding"],
+        "comments": 14,
+        "views": 101
+      },
+      {
+        "id": 2,
+        "author": "New Stha",
+        "date": "Sep 15, 2023",
+        "category": "Finance",
+        "question": "How do finaicial knowledge and accounting skills helps organization?",
+        "image":"https://images.unsplash.com/photo-1658747773643-707db5889b17?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    
+        "tags": ["Finance", "Accounting", "Stat"],
+        "comments": 8,
+        "views": 87
+      }
+    ],
+    "communities": [
+      {
+        "name": "React",
+        "followers": "2M",
+        "logo": "https://w7.pngwing.com/pngs/344/176/png-transparent-react-react-native-logos-brands-in-colors-icon-thumbnail.png"
+      },
+      {
+        "name": "Django",
+        "followers": "11M",
+        "logo": "https://image.similarpng.com/file/similarpng/very-thumbnail/2021/08/Illustration-of-Business-Finance-logo-design-on-transparent-background-PNG.png"
+      },
+      {
+        "name": "Finanace",
+        "followers": "3.3M",
+        "logo": "https://image.similarpng.com/file/similarpng/very-thumbnail/2021/08/Illustration-of-Business-Finance-logo-design-on-transparent-background-PNG.png"
+      }
+    ]
+  }
+  

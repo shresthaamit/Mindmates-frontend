@@ -12,7 +12,7 @@ function Navbar() {
       <div className="nav-bar">
         <div className="navlinks">
           <Link to="/">Home</Link>
-
+          <Link to="/">Communities</Link>
           <input type="text" placeholder="Search..." className="search-bar" />
           <Link to="/login" className="nav-button">
             Login
