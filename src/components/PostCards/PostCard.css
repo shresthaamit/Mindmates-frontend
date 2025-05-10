@@ -118,3 +118,18 @@
   border-radius: 6px;
   cursor: pointer;
 }
+.see-more-toggle {
+  /* text-align: center; */
+
+  margin-top: 15px;
+}
+
+.see-more-btn {
+  background-color: #ff6600;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
