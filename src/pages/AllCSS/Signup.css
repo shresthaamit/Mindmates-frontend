@@ -1,0 +1,92 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.signup-form {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.signup-form h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.signup-form .subtitle {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.name-fields {
+  display: flex;
+  gap: 3rem;
+}
+
+.name-fields div {
+  flex: 1;
+}
+
+.signup-form label {
+  display: block;
+  margin: 0.8rem 0 0.3rem;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.signup-form small {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 1rem;
+  display: block;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.checkbox label {
+  margin-left: 0.5rem;
+}
+
+.signup-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.signup-button:hover {
+  background-color: #1d4ed8;
+}
+
+.signin-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}

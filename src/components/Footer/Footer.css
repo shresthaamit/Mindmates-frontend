@@ -1,0 +1,50 @@
+.footer {
+  background-color: #0f0f1c;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 93%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  font-family: poppins;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 1rem;
+}
+
+.logo-area .logo {
+  color: orange;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin: 6px 0;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-section a:hover {
+  color: orange;
+}
+
+.footer .copyright {
+  font-size: 12px;
+  margin-top: 20px;
+  opacity: 0.6;
+}
