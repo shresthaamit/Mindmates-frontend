@@ -97,7 +97,7 @@ const Signup = () => {
               checked={formData.agree}
               onChange={handleChange}
             />
-            <label>
+            <label className="labelName">
               I agree to the <a href="#">terms of service</a> and{" "}
               <a href="#">privacy policy</a>
             </label>
