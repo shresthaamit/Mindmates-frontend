@@ -1,34 +1,56 @@
 import React, { useState } from "react";
 import "./AllCSS/Signup.css";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
-    confirmPassword: "",
     agree: false,
   });
   const handleChange = (e) => {
-    const { name, value, type, change } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
+
     if (!formData.agree) {
-      alert("You must agree to the terms.");
+      toast.error("You must agree to the terms.");
       return;
     }
-    // Submit logic here
-    console.log("Form submitted:", formData);
+    try {
+      const payload = {
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+        email: formData.email,
+        password: formData.password,
+      };
+      const response = await axios.post(
+        "http://127.0.0.1:8000/accounts/users/",
+        payload
+      );
+      if (response.status === 201 || response.status === 200) {
+        toast.success("Signup successful! Redirecting to login...");
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
+      }
+    } catch (error) {
+      const errMsg =
+        error.response?.data?.email?.[0] ||
+        error.response?.data?.detail ||
+        "Signup failed.";
+      toast.error(errMsg);
+    }
   };
 
   return (
@@ -45,8 +67,8 @@ const Signup = () => {
               <label>First name</label>
               <input
                 type="text"
-                name="firstName"
-                value={formData.firstName}
+                name="first_name"
+                value={formData.first_name}
                 onChange={handleChange}
                 required
               />
@@ -55,8 +77,8 @@ const Signup = () => {
               <label>Last name</label>
               <input
                 type="text"
-                name="lastName"
-                value={formData.lastName}
+                name="last_name"
+                value={formData.last_name}
                 onChange={handleChange}
                 required
               />
@@ -82,14 +104,7 @@ const Signup = () => {
             Password must be at least 8 characters and include a number and a
             special character
           </small>
-          <label>Confirm password</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
+
           <div className="checkbox">
             <input
               type="checkbox"
