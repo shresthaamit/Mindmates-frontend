@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./AllCSS/Signup.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+// import { useEffect } from "react";
+
 const Signup = () => {
+  const signupRef = useRef(null);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     first_name: "",
@@ -13,6 +16,9 @@ const Signup = () => {
     password: "",
     agree: false,
   });
+  useEffect(() => {
+    signupRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -55,7 +61,7 @@ const Signup = () => {
 
   return (
     <>
-      <div className="signup-container">
+      <div className="signup-container" ref={signupRef}>
         <form className="signup-form" onSubmit={handleSubmit}>
           <h1>Create your account</h1>
           <p className="subtitle">

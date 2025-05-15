@@ -1,8 +1,8 @@
 .login-wrapper {
   display: flex;
   justify-content: center;
-  padding: 2rem 1rem;
-  /* min-height: 100vh; */
+  padding: 2rem;
+
   background-color: #f9f9f9;
 }
 
