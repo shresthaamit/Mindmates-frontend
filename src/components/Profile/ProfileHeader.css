@@ -1,0 +1,31 @@
+/* ProfileHeader.css */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.avatar-box {
+  background: #e0e7ff;
+  border-radius: 8px;
+  font-size: 24px;
+  padding: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+.profile-info {
+  flex: 1;
+  margin-left: 20px;
+}
+.stats span {
+  margin-right: 10px;
+}
+.buttons button {
+  margin-left: 10px;
+}
+.buttons .blue {
+  background-color: #2563eb;
+  color: white;
+}
