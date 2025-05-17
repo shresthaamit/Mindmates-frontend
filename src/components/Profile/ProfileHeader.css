@@ -1,31 +1,81 @@
-/* ProfileHeader.css */
 .profile-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+  gap: 20px;
 }
+
 .avatar-box {
   background: #e0e7ff;
-  border-radius: 8px;
-  font-size: 24px;
-  padding: 40px;
-  text-align: center;
+  border-radius: 12px;
+  font-size: 28px;
+  width: 80px;
+  height: 80px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e40af;
 }
+
 .profile-info {
-  flex: 1;
-  margin-left: 20px;
+  /* flex: 2; */
+  min-width: 200px;
+  margin-left: 0px;
 }
-.stats span {
-  margin-right: 10px;
+
+.profile-info h2 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
 }
+
+.job-title,
+.member-location {
+  color: #555;
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+.stats {
+  margin-top: 10px;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: #333;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+}
+
 .buttons button {
-  margin-left: 10px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
+
+.buttons .gray {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
 .buttons .blue {
   background-color: #2563eb;
   color: white;
+}
+
+.buttons .blue:hover {
+  background-color: #1d4ed8;
 }

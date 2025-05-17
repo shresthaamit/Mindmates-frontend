@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import js from "@eslint/js";
 
-const Login = () => {
+const Login = ({ setIsLoggedIn }) => {
   const loginRef = useRef(null);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -33,6 +33,7 @@ const Login = () => {
       const { access, refresh } = response.data;
       localStorage.setItem("accessToken", access);
       localStorage.setItem("refreshToken", refresh);
+      setIsLoggedIn(true);
       toast.success("Login Succeed");
       console.log("Login succeed", formData.email);
       setTimeout(() => {

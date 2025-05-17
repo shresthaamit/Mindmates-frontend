@@ -8,8 +8,8 @@ const ProfileHeader = () => (
     </div>
     <div className="profile-info">
       <h2>John Smith</h2>
-      <p>Full Stack Developer at TechCorp</p>
-      <p>Member since May 2023 • San Francisco, CA</p>
+      <p className="job-title">TitleJOB</p>
+      <p className="member-location">Member since May 2023 • Address</p>
       <div className="stats">
         <span>1,234 Reputation</span>
         <span>42 Questions</span>
@@ -20,7 +20,7 @@ const ProfileHeader = () => (
       </div>
     </div>
     <div className="buttons">
-      <button>Update Profile Info</button>
+      <button className="gray">Update Profile Info</button>
       <button className="blue">Update Profile Picture</button>
     </div>
   </div>

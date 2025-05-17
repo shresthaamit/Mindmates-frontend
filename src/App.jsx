@@ -1,15 +1,31 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
 import AllNav from "./components/navbar/AllNav.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import ProfilePage from "./pages/Profile.jsx";
+import UserNav from "./components/navbar/UserNav.jsx";
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    !!localStorage.getItem("accessToken")
+  );
+
+  // React to login/logout by listening to localStorage changes
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setIsLoggedIn(!!localStorage.getItem("accessToken"));
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
   return (
     <Router>
-      <AllNav />
+      {isLoggedIn ? <UserNav setIsLoggedIn={setIsLoggedIn} /> : <AllNav />}
       <div style={{ position: "relative", zIndex: 1000 }}>
         <ToastContainer
           position="top-center"
@@ -28,7 +44,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
       <Footer />
     </Router>

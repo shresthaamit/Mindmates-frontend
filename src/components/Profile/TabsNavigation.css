@@ -1,0 +1,19 @@
+.tabss {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tabss button {
+  padding: 8px 14px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.tabss .active {
+  background-color: #2563eb;
+  color: white;
+}
