@@ -33,6 +33,7 @@ const Login = ({ setIsLoggedIn }) => {
       const { access, refresh } = response.data;
       localStorage.setItem("accessToken", access);
       localStorage.setItem("refreshToken", refresh);
+
       setIsLoggedIn(true);
       toast.success("Login Succeed");
       console.log("Login succeed", formData.email);

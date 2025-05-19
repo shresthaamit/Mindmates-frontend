@@ -1,37 +1,46 @@
 .profile-header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   background: #ffffff;
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  gap: 24px;
   flex-wrap: wrap;
-  gap: 20px;
+}
+
+.profile-left {
+  flex-shrink: 0;
+}
+
+.avatar-image,
+.avatar-box {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #ccc;
 }
 
 .avatar-box {
   background: #e0e7ff;
-  border-radius: 12px;
-  font-size: 28px;
-  width: 80px;
-  height: 80px;
-  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
   color: #1e40af;
 }
 
-.profile-info {
-  /* flex: 2; */
-  min-width: 200px;
-  margin-left: 0px;
+.profile-center {
+  flex: 1;
+  min-width: 220px;
 }
 
 .profile-info h2 {
   margin: 0 0 5px 0;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .job-title,
@@ -42,11 +51,11 @@
 }
 
 .stats {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 14px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
+  gap: 10px 20px;
   color: #333;
 }
 
@@ -56,7 +65,10 @@
   gap: 10px;
   min-width: 180px;
 }
-
+.profile-info {
+  padding-top: 12px;
+  line-height: 22.6px;
+}
 .buttons button {
   padding: 10px 14px;
   border: none;
@@ -78,4 +90,22 @@
 
 .buttons .blue:hover {
   background-color: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .buttons {
+    width: 100%;
+    align-items: center;
+  }
+
+  .stats {
+    justify-content: center;
+  }
 }
