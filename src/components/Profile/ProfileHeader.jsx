@@ -2,7 +2,7 @@ import "./ProfileHeader.css";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import UpdateProfileInfo from "./UpdateUserInfo";
 const ProfileHeader = () => {
   const [profile, setProfile] = useState(null);
   const [username, setUsername] = useState("");
@@ -10,6 +10,7 @@ const ProfileHeader = () => {
   const [name, setName] = useState("");
   const [dateJoined, setDateJoined] = useState("");
   const navigate = useNavigate();
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   const accessToken = localStorage.getItem("accessToken");
 
   const parseJwt = (token) => {
@@ -113,7 +114,16 @@ const ProfileHeader = () => {
       </div>
 
       <div className="buttons">
-        <button className="btn-outline">✏️ Update Profile Info</button>
+        {showUpdateModal && (
+          <UpdateProfileInfo
+            userId={userId}
+            email={email}
+            onClose={() => setShowUpdateModal(false)}
+          />
+        )}
+        <button className="btn-dark" onClick={() => setShowUpdateModal(true)}>
+          ✏️ Update Profile Info
+        </button>
         <button className="btn-primary">📷 Update Profile Picture</button>
       </div>
     </div>
