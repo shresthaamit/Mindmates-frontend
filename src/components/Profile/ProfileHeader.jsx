@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UpdateProfileInfo from "./UpdateUserInfo";
+import UpdateProfilePicture from "./UpdateProfilePicture";
 const ProfileHeader = () => {
   const [profile, setProfile] = useState(null);
   const [username, setUsername] = useState("");
@@ -11,6 +12,7 @@ const ProfileHeader = () => {
   const [dateJoined, setDateJoined] = useState("");
   const navigate = useNavigate();
   const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [showPictureModal, setShowPictureModal] = useState(false);
   const accessToken = localStorage.getItem("accessToken");
 
   const parseJwt = (token) => {
@@ -95,9 +97,7 @@ const ProfileHeader = () => {
       <div className="profile-center">
         <div className="profile-info">
           <h2>{name || username || "User not found"}</h2>
-          <p className="job-title" class="mt-9">
-            {email || "No email"}
-          </p>
+          <p className="job-title mt-9">{email || "No email"}</p>
           <p className="member-location">
             <b>Member since :</b>
             {formattedDate}
@@ -124,7 +124,26 @@ const ProfileHeader = () => {
         <button className="btn-dark" onClick={() => setShowUpdateModal(true)}>
           ✏️ Update Profile Info
         </button>
-        <button className="btn-primary">📷 Update Profile Picture</button>
+        {showPictureModal && (
+          <UpdateProfilePicture
+            profileId={userId}
+            currentPicture={imageUrl}
+            onClose={() => setShowPictureModal(false)}
+            onPictureUpdated={(newUrl) => {
+              setProfile((prev) => ({
+                ...prev,
+                profile_picture: newUrl,
+              }));
+            }}
+          />
+        )}
+
+        <button
+          className="btn-primary"
+          onClick={() => setShowPictureModal(true)}
+        >
+          📷 Update Profile Picture
+        </button>
       </div>
     </div>
   );
