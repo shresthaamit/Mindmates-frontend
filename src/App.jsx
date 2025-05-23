@@ -9,6 +9,7 @@ import AllNav from "./components/navbar/AllNav.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import ProfilePage from "./pages/Profile.jsx";
 import UserNav from "./components/navbar/UserNav.jsx";
+import AskQuestion from "./pages/QuestionForm.jsx";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     !!localStorage.getItem("accessToken")
@@ -49,6 +50,7 @@ function App() {
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
         />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/askquestion" element={<AskQuestion />} />
       </Routes>
       <Footer />
     </Router>
