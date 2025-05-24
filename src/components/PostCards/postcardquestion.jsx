@@ -4,7 +4,7 @@ import data from "./data.json";
 import Button from "../Buttons/buttons";
 import Pagination from "../pagination/pagination";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const POSTS_PER_PAGE = 7;
 
 const PostCard = () => {
@@ -157,7 +157,9 @@ const PostCard = () => {
               <button className="comment-button">
                 💬 {post.comments || 0} Comments
               </button>
-              <button className="add-comment">Add Comment</button>
+              <Link to={`/question/${post.id}`} className="add-comment">
+                Add Comment
+              </Link>
             </div>
           </div>
         ))}

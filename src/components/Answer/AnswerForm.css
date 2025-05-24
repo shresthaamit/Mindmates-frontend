@@ -1,0 +1,88 @@
+.answer-form {
+  max-width: 900px;
+
+  margin: 40px auto;
+  padding: 25px 30px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.answer-form h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.answer-form textarea {
+  width: 97%;
+  height: 40px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  margin-bottom: 16px;
+}
+
+.answer-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.answer-form input[type="url"],
+.answer-form input[type="file"] {
+  width: 97%;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: border-color 0.3s ease;
+}
+
+.answer-form input[type="url"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.answer-form button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.answer-form button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+.answer-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.answer-form button[type="cancel"] {
+  background-color: #f5f5f5;
+  color: #555;
+}
+
+.answer-form button[type="cancel"]:hover {
+  background-color: #e0e0e0;
+}
+
+.answer-form .message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-left: 4px solid #d9534f;
+  background-color: #ffe6e6;
+  color: #a94442;
+  border-radius: 5px;
+}

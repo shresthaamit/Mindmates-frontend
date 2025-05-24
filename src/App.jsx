@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import ProfilePage from "./pages/Profile.jsx";
 import UserNav from "./components/navbar/UserNav.jsx";
 import AskQuestion from "./pages/QuestionForm.jsx";
+import QuestionDetail from "./pages/QuestionDetail.jsx";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     !!localStorage.getItem("accessToken")
@@ -51,6 +52,7 @@ function App() {
         />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/askquestion" element={<AskQuestion />} />
+        <Route path="/question/:id" element={<QuestionDetail />} />
       </Routes>
       <Footer />
     </Router>
