@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import AnswerForm from "../components/Answer/AnswerForm";
 import { useParams } from "react-router-dom";
 import "./AllCSS/QuestionDetail.css";
-const QuestionDetail = () => {
+import AnswerList from "../components/Answer/Answercard";
+const QuestionDetail = ({ accessToken }) => {
   const { id } = useParams();
   const [question, setQuestion] = useState(null);
   useEffect(() => {
@@ -53,7 +54,8 @@ const QuestionDetail = () => {
           ))}
         </div>
       </div>
-      <AnswerForm />
+       <AnswerList questionId={id} accessToken={accessToken} />
+      <AnswerForm questionId={id} accessToken={accessToken} />
     </>
   );
 };

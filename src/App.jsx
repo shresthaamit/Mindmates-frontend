@@ -16,6 +16,7 @@ function App() {
     !!localStorage.getItem("accessToken")
   );
 
+  const accessToken = localStorage.getItem("accessToken");
   // React to login/logout by listening to localStorage changes
   useEffect(() => {
     const handleStorageChange = () => {
@@ -52,7 +53,10 @@ function App() {
         />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/askquestion" element={<AskQuestion />} />
-        <Route path="/question/:id" element={<QuestionDetail />} />
+        <Route
+          path="/question/:id"
+          element={<QuestionDetail accessToken={accessToken} />}
+        />
       </Routes>
       <Footer />
     </Router>

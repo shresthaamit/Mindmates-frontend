@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./AnswerForm.css";
-
-const AnswerForm = ({ questionId, token }) => {
+import { toast } from "react-toastify";
+const AnswerForm = ({ questionId, accessToken }) => {
   const [content, setContent] = useState("");
   const [answerUrl, setAnswerUrl] = useState("");
   const [image, setImage] = useState(null);
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
+  const imageInputRef = useRef(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!content.trim()) {
@@ -22,28 +24,41 @@ const AnswerForm = ({ questionId, token }) => {
         {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${accessToken}`,
           },
           body: formData,
         }
       );
       const data = await response.json();
       if (response.ok) {
-        setMessage("Answer submitted successfully.");
+        showMessage("✅ Answer submitted successfully!", "success");
         setContent("");
         setAnswerUrl("");
         setImage(null);
+        if (imageInputRef.current) {
+          imageInputRef.current.value = "";
+        }
       } else {
-        setMessage(data.detail || "Error submitting answer.");
+        showMessage(data.detail || "Error submitting answer.", "error");
       }
     } catch (error) {
-      setMessage("Something went wrong.");
+      showMessage("Something went wrong.", "error");
     }
+  };
+  const showMessage = (text, type) => {
+    setMessage(text);
+    setMessageType(type);
+    setTimeout(() => {
+      setMessage(null);
+      setMessageType("");
+    }, 2000); // clear after 2 seconds
   };
   return (
     <form className="answer-form" onSubmit={handleSubmit}>
       <h3>Submit Your Answer</h3>
-      {message && <p className="message">{message}</p>}
+      {message && (
+        <div className={`inline-toast ${messageType}`}>{message}</div>
+      )}
       <textarea
         placeholder="write your anwser"
         name=""
@@ -61,9 +76,23 @@ const AnswerForm = ({ questionId, token }) => {
       <input
         type="file"
         accept="image/*"
+        ref={imageInputRef}
         onChange={(e) => setImage(e.target.files[0])}
       />
-      <button type="cancel">Cancel</button>
+      <button
+        type="button"
+        onClick={() => {
+          setContent("");
+          setAnswerUrl("");
+          setImage(null);
+          setMessage("");
+          if (imageInputRef.current) {
+            imageInputRef.current.value = "";
+          }
+        }}
+      >
+        Cancel
+      </button>
       <button type="submit">Post Answer</button>
     </form>
   );

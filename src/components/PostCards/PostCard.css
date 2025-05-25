@@ -197,3 +197,7 @@
 .add-comment:hover {
   background-color: #e65500;
 }
+.question {
+  text-align: left;
+  margin-top: 22px;
+}

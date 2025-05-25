@@ -86,3 +86,20 @@
   color: #a94442;
   border-radius: 5px;
 }
+.inline-toast {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.inline-toast.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.inline-toast.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
