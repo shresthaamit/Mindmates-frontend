@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./AnswerCard.css";
@@ -10,6 +10,18 @@ const AnswerList = ({ questionId, accessToken }) => {
   const [editingReviewIdMap, setEditingReviewIdMap] = useState({});
   const [modalImage, setModalImage] = useState(null);
   const [openMenuReviewId, setOpenMenuReviewId] = useState(null);
+  const menuRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpenMenuReviewId(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchAnswers = async () => {
@@ -235,7 +247,24 @@ const AnswerList = ({ questionId, accessToken }) => {
                 </div>
               )}
               <div className="answer-body">
-                {answer.content || "No content provided."}
+                {answer.content ? (
+                  <p>{answer.content}</p>
+                ) : !answer.answerurl ? (
+                  <p>No content provided.</p>
+                ) : null}
+
+                {answer.answerurl && (
+                  <p>
+                    Url:
+                    <a
+                      href={answer.answerurl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {answer.answerurl}
+                    </a>
+                  </p>
+                )}
               </div>
             </div>
 
@@ -260,7 +289,7 @@ const AnswerList = ({ questionId, accessToken }) => {
                             ⋮
                           </button>
                           {openMenuReviewId === review.id && (
-                            <div className="dropdown-menu">
+                            <div className="dropdown-menu" ref={menuRef}>
                               <button
                                 onClick={() => {
                                   handleReviewChange(answer.id, review.content);

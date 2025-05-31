@@ -53,6 +53,7 @@ function App() {
         />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/askquestion" element={<AskQuestion />} />
+        <Route path="/askquestion/:id" element={<AskQuestion />} />
         <Route
           path="/question/:id"
           element={<QuestionDetail accessToken={accessToken} />}

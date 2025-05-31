@@ -1,19 +1,35 @@
 import React, { useState, useEffect } from "react";
 import "./AllCSS/Askquestion.css";
-import { Link } from "react-router-dom";
 import Button from "../components/Buttons/buttons.jsx";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+
 export default function AskQuestion() {
+  const { id } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const editingPost = location.state?.post || null;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState([]);
-  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState(
+    editingPost?.tags.map((tag) => tag.id.toString()) || []
+  );
   const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/querymate/tags/")
       .then((res) => res.json())
       .then(setTags);
   }, []);
+  useEffect(() => {
+    if (editingPost) {
+      setTitle(editingPost.title || "");
+      setDescription(editingPost.description || "");
+      setImage(null); // for uploading a new image
+      setImagePreview(editingPost.image || null); // ✅ show existing image
+    }
+  }, [editingPost]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,16 +40,32 @@ export default function AskQuestion() {
     if (image) formData.append("image", image);
     selectedTags.forEach((tagId) => formData.append("tag_ids", tagId));
 
-    const response = await fetch("http://127.0.0.1:8000/questions/", {
-      method: "POST",
+    const token = localStorage.getItem("accessToken");
+    const endpoint = editingPost
+      ? `http://127.0.0.1:8000/querymate/questions/${editingPost.id}/`
+      : "http://127.0.0.1:8000/querymate/questions/";
+
+    const response = await fetch(endpoint, {
+      method: editingPost ? "PUT" : "POST",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        Authorization: `Bearer ${token}`,
       },
       body: formData,
     });
-
+    if (!response.ok) {
+      const text = await response.text();
+      console.error("Error response text:", text);
+      alert("Something went wrong: " + response.status);
+      return;
+    }
     const result = await response.json();
     console.log(result);
+
+    if (response.ok) {
+      navigate("/"); // or show a success message
+    } else {
+      alert("Something went wrong while submitting the form.");
+    }
   };
 
   return (
@@ -109,12 +141,33 @@ export default function AskQuestion() {
         </div>
         <div className="form-group">
           <label>Image (optional)</label>
+
+          {imagePreview && (
+            <div className="image-preview">
+              <p>Image Preview:</p>
+              <img
+                src={imagePreview}
+                alt="Preview"
+                style={{ maxWidth: "300px", marginBottom: "10px" }}
+              />
+            </div>
+          )}
+
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
+            onChange={(e) => {
+              const file = e.target.files[0];
+              setImage(file);
+              if (file) {
+                setImagePreview(URL.createObjectURL(file));
+              } else {
+                setImagePreview(null);
+              }
+            }}
           />
         </div>
+
         <div className="button-group">
           <button
             type="button"
