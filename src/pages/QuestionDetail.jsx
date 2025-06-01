@@ -54,7 +54,7 @@ const QuestionDetail = ({ accessToken }) => {
           ))}
         </div>
       </div>
-       <AnswerList questionId={id} accessToken={accessToken} />
+      <AnswerList questionId={id} accessToken={accessToken} />
       <AnswerForm questionId={id} accessToken={accessToken} />
     </>
   );
